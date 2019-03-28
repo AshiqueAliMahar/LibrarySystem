@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Bikes</title>
+</head>
+<body>
+    <fieldset>
+        <legend>Available Bikes</legend>
+    <table>
+        <tr>
+            <th>Name</th>
+            <th>CC</th>
+            <th>Chasis Number</th>
+            <th>Company</th>
+            <th>Color</th>
+        </tr>
+        <tr th:each="bike:${bikes}" th:style="|color: ${bike.color.color}|">
+            <td th:text="${bike.name}"></td>
+            <td th:text="${bike.cc}"></td>
+            <td th:text="${bike.chasisNumber}"></td>
+            <th th:text="${bike.company.name}"></th>
+            <td>
+                <div th:style="|background-color: ${bike.color.color}; width:100px;height:100px|"></div>
+            </td>
+        </tr>
+    </table>
+    </fieldset>
+</body>
+</html>
